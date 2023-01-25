@@ -36,7 +36,8 @@ prepare for adverse conditions brought on by climate change.
 
 ## About the Dataset
 
-The dataset we were provided was quite extensive, featuring over 200 predictor variables. The data was sourced from avariety of locations and covered a wide range of categories, incliding Madden-Julian oscillation, pressure, and 
+The dataset we were provided was quite extensive, featuring over 200 predictor variables. The data was sourced from 
+avariety of locations and covered a wide range of categories, incliding Madden-Julian oscillation, pressure, and 
 evaporation. We utilized variables such as sea level pressure (slp), MJO phase and amplitute, geopotential height at 
 various millibar values, zonal wind, and weighted average forecasts for precipitation form the NMME model. Overall, the 
 majority of predictor variables used in our model from this dataset were physics-based climate statistics measured in 
