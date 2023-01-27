@@ -1,6 +1,6 @@
 ---
 title: "Final Report"
-author: Ellie Strande, Nathan Nguyen, Nayeli Castro
+author: Ellie Strande, Nathan Nguyen, Nayeli Castro, Liora Mayats Alpay
 format:
     html:
         code-background: true
@@ -37,7 +37,7 @@ prepare for adverse conditions brought on by climate change.
 ## About the Dataset
 
 The dataset we were provided was quite extensive, featuring over 200 predictor variables. The data was sourced from 
-avariety of locations and covered a wide range of categories, incliding Madden-Julian oscillation, pressure, and 
+a variety of locations and covered a wide range of categories, incliding Madden-Julian oscillation, pressure, and 
 evaporation. We utilized variables such as sea level pressure (slp), MJO phase and amplitute, geopotential height at 
 various millibar values, zonal wind, and weighted average forecasts for precipitation form the NMME model. Overall, the 
 majority of predictor variables used in our model from this dataset were physics-based climate statistics measured in 
@@ -91,18 +91,19 @@ y = trainData['contest-tmp2m-14d__tmp2m']
 
 # Modeling
 
-To begin the model development process, we applied a Linear Regression model to the dataset. Linear regression models 
+To begin the model development process, we applied a Linear Regression model to the dataset. Linear regression models describe 
 the relationship between a dependent variable and one or more independent variables, finding the line of best fit 
-throguh the data points. In our initial attempt, we attemped to standardize the continuous variables by generating 
+through the data points. In our initial attempt, we attemped to standardize the continuous variables by generating 
 Z-scores. However, this method did not yield the desired results as it generated an unusually high mean squared error. 
-Aftetr removing Z-scoring, the model performed substantially better, yielding a significantly lower mean squared error. 
+After removing Z-scoring, the model performed substantially better, yielding a significantly lower mean squared error. 
 
 ## Simple Linear Regression Model
 
 ```{python}
 #| eval : false
 #Train test split
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size = 0.2, random_state = 5)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size = 0.2, 
+                                                        random_state = 5)
 #Standardize/Z score
 z = StandardScaler()d
 X_train[preds] = z.fit_transform(X_train[preds])
@@ -129,6 +130,8 @@ dimensionality of large datasets by transforming data into a new set of linearly
 principal components. These principal components are combinations of the original variables that capture the most 
 variance in the data. Consequentially, we found that our linear regression mean squared error was significantly higher 
 when using the principal components in the model as opposed to the original variables. 
+
+## XGBoost
 
 With the goal of generating long-term predictions for temperature and precipitation, our group decided to use XGBoost, 
 an open-source software library for gradient boosing on decision trees. XGBoost is good for time series data and the 
